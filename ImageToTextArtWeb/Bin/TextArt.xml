@@ -1,0 +1,175 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+TextArt
+</name>
+</assembly>
+<members>
+<member name="F:Argus.Imaging.TextArt._unicodeCharArray">
+	<summary>
+ Darkest to lightest characters to use in Unicode encoding.  
+ </summary>
+	<remarks>
+ For this to work, a font with a constant width needs to be used and moreso, this was specifically written for Courier New
+ was specifically written for Courier New (1.5 font works well for display).  You can change the characters if you want
+ different fonts.  New characters can be added and the CalculateBrightnessValue will compenstate.  For a good render though
+ you'll go darkest looking to lightest looking characters.  We are going to use 20 characters in both the unicode and ascii
+ array.  The CalculateBrightnessValue will return the % brightness divided by 20 in order to get one of these characters from
+ lightest to darkest.
+ </remarks>
+</member><member name="F:Argus.Imaging.TextArt._asciiCharArray">
+	<summary>
+ Darkest to lightest characters to use in ASCII encoding.  
+ </summary>
+	<remarks>
+ Same remarks as above.
+ </remarks>
+</member><member name="M:Argus.Imaging.TextArt.#ctor(System.Drawing.Bitmap)">
+	<summary>
+ Constructor
+ </summary>
+	<param name="sourceBitmap">The source image.  This will populate the SourceBitmap property.</param>
+	<remarks></remarks>
+</member><member name="M:Argus.Imaging.TextArt.#ctor">
+	<summary>
+ Constructor
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Argus.Imaging.TextArt.CalculateBrightnessValue(System.Single)">
+	<summary>
+ Calculates the brightness based off of the bitmap and the number of elements in our character array to choose
+ from to create the picture.
+ </summary>
+	<param name="PixelBrightness"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Argus.Imaging.TextArt.ResizeBitmap(System.Int32,System.Int32)">
+	<summary>
+ Resizes the bitmap set via the source bitmap property to the specified heighth and width.
+ </summary>
+	<param name="width"></param>
+	<param name="height"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Argus.Imaging.TextArt.ResizeImageInProportion(System.Drawing.Image,System.Int32,System.Int32)">
+	<summary>
+ Resizes an image keeping the proportion correct.  This returns a new Image, the passed in image can
+ be disposed off afterwards.
+ </summary>
+	<param name="sourceImage"></param>
+	<param name="maxWidth"></param>
+	<param name="maxHeight"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Argus.Imaging.TextArt.SourceBitmap">
+	<summary>
+ The source bitmap.  
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="F:Argus.Imaging.TextArt._sb">
+	<summary>
+ For use in the AsciiText and UnicodeText properties
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Argus.Imaging.TextArt.UnicodeText">
+	<summary>
+ The text that makes up the picture.  This re-renders the image when called so if you plan on manipulating the text you
+ will need to save the string in a local variable.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>
+	</remarks>
+</member><member name="P:Argus.Imaging.TextArt.AsciiText">
+	<summary>
+ The text that makes up the picture.  This re-renders the image when called so if you plan on manipulating the text you
+ will need to save the string in a local variable.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>
+	</remarks>
+</member><member name="P:Argus.Imaging.TextArt.HtmlArtText">
+	<summary>
+ The text to repeat when making up the HTML Art page.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Argus.Imaging.TextArt.HtmlArt">
+	<summary>
+ The HTML to display the color coded picture.  The text used it set in the HtmlArtText property and the IncludePageTags 
+ boolean property specifies whether or not this should render the html and body tags.  It will render them by default.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Argus.Imaging.TextArt.BackgroundColor">
+	<summary>
+ The background color for the HTML page if the IncludePageTags is set to true.
+ </summary>
+	<value>Default is Color.Black</value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Argus.Imaging.TextArt.AutoResize">
+	<summary>
+ Whether or not to resize original photo into a more manageable size before rendering the text.  This is true by default.
+ If this property is toggled to false, you will be responsible for setting the image size yourself or leaving it how it is
+ (which can produce very large outputs).
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Argus.Imaging.TextArt.MaxHeight">
+	<summary>
+ The maximum height that the resized image will be.  Each of these will represent one character in the output provided.  The 
+ default value is 160.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Argus.Imaging.TextArt.MaxWidth">
+	<summary>
+ The maximum width that the resized image will be.  Each of these will represent one character in the output provided.  The default 
+ value is 160.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Argus.Imaging.TextArt.IncludePageTags">
+	<summary>
+ Whether or not the HtmlArt property should return page tags with it.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Argus.Imaging.TextArt.Dispose(System.Boolean)">
+	<summary>
+ Cleanup objects in memory.
+ </summary>
+	<param name="disposing"></param>
+	<remarks></remarks>
+</member><member name="T:Argus.Imaging.TextArt">
+	<summary>
+ Converts a System.Drawing.Bitmap into a text, unicode or HTML representation.
+ </summary>
+	<remarks>Formerly BitmapToText</remarks>
+</member><member name="P:My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>
