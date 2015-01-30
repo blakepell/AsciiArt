@@ -152,7 +152,7 @@
     <Content Include="GenericPicDoc.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BitmapToText\TextArt.vbproj">
+    <ProjectReference Include="..\TextArt\TextArt.vbproj">
       <Project>{F0ED7B69-8F77-485F-9C22-BDBC72AA6D7D}</Project>
       <Name>TextArt</Name>
     </ProjectReference>
